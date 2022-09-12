@@ -13,6 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
@@ -195,6 +196,10 @@ public class NintendoUtil {
 			for(int j=0;j<image.getWidth();j++)
 				imageNew.setRGB(j, i, image.getRGB(j, i)^0x00ffffff);
 		return imageNew;
+	}
+
+	public static <T> boolean contains(T[] arr, T key) {
+		return Arrays.stream(arr).anyMatch(i -> i.equals(key));
 	}
 	
 }
